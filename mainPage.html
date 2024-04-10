@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Form</title>
+    <style>
+        body {
+          background-color: linen;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 1px;
+            font-size: 1.3em;
+          color: rgb(120, 7, 7);
+          margin-left: 40px;
+        }
+        button {
+            position: relative;
+            left: 100px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green */
+}
+::placeholder{
+    color: #04050400;
+}
+.inputbar{
+    background-color: #ffffff00;
+    width: 50px;
+    
+    margin: 2px;
+    border-radius: 5px;
+    border: none;
+    border: 0.5px solid rgb(3, 4, 4);
+}
+#intro{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+.introi{margin: 2px;
+    background-color: #45a04900;
+   border: 0.5px solid rgb(26, 17, 2);
+    border-radius: 5px;
+}
+#shirt{display: block;
+    text-align: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+#pant{display: block;
+    text-align: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+#show{position: fixed;
+    bottom: 7%;
+    left: 0%;
+    width: 50px;
+    height: 36px;
+    background-color:  rgb(19, 2, 15);
+    font-size: 1.6em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius: 10px;
+
+}
+#home{position:fixed;
+    left: 80%;
+    right:0%;
+    bottom: 7%;
+    width: 50px;
+    background-color:  rgb(19, 2, 15);
+    font-size: 1.6em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius: 10px;
+
+    
+  
+}
+#submit{position: relative;
+    left: 25%;
+    bottom: 7%;  
+    background-color:rgb(252, 141, 230);
+    font-size: 1.6em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius: 7px;
+
+}
+ 
+
+       
+
+        </style>
+</head>
+<body>
+    
+   <h1 id="heading">🆃🅰🅸🅻🅴🆁 🅳🅾🆂🆃</h1>
+    <div id="intro">DETAILS
+    
+    <form id="dataForm">
+        <label for="name">Name:</label>
+        <input  id="name" name="name" class="introi"><br>
+        <label for="name">mo:</label>
+        <input  id="mo" name="mo" type="number"class="introi"><br>
+        <label for="advance">Advance:</label>
+        <input id="advance" name="advance"placeholder="enter advance"type="number"class="inputbar"><br>
+        <label for="dateOfDelivery">Date of Delivery:</label>
+        <input type="date"name="dateOfDelivery" placeholder="enter date of delivery"type="date"class="introi"><br>
+
+        <label for="design">Design:</label>
+    <select id="design"name="design"class="introi">
+        <option value="normal">Normal</option>
+        <option value="pathani">Pathani</option>
+        <option value="apple_cut">Apple Cut</option>
+        <option value="safari">Safari</option>
+        <option value="nehru">Nehru</option>
+    </select>
+        
+    </div>
+    <div id="shirt">SHIRT<br>
+       
+
+       <label for="length">length:</label>
+       <input id="length" name="length"placeholder="length"type="number"class="inputbar"><br>
+       <label for="shoulder">shoulder:</label>
+       <input id="shoulder" name="shoulder"placeholder="shoulder"type="number"class="inputbar"><br>
+       <label for="chest">chest:</label>
+       <input id="chest" name="chest"placeholder="chest"type="number"class="inputbar"><br>
+       <label for="fitting">fitting:</label>
+       <input id="fitting" name="fitting"placeholder="fitting"type="number"class="inputbar"><br>
+       <label for="astin">astin:</label>
+       <input id="astin" name="astin"placeholder="astin"type="number"class="inputbar"><br>
+       <label for="coller">coller:</label>
+       <input id="coller" name="coller"placeholder="coller"type="number"class="inputbar"><br>
+       <label for="cup">cup:</label>
+       <input id="cup" name="cup"placeholder="cup"type="number"class="inputbar"><br>
+       <label for="cupSize">cup size:</label>
+       <input id="cupSize" name="cupSize"placeholder="cupSize"type="number"class="inputbar"><br>
+    </div>
+    <div id="pant">TROWSER<br>
+        <label for="height">height:</label>
+       <input id="height" name="height"placeholder="height"type="number"class="inputbar"><br>
+        <label for="weist">weist:</label>
+       <input id="weist" name="weist"placeholder="weist"type="number"class="inputbar"><br>
+        <label for="sheet">sheet:</label>
+       <input id="sheet" name="sheet"placeholder="sheet"type="number"class="inputbar"><br>
+        <label for="thigh">thigh:</label>
+       <input id="thigh" name="thigh"placeholder="thigh"type="number"class="inputbar"><br>
+        <label for="knee">knee:</label>
+       <input id="knee" name="knee"placeholder="knee"type="number"class="inputbar"><br>
+       <label for="bottom">bottom:</label>
+       <input id="bottom" name="bottom"placeholder="bottom"type="number"class="inputbar"><br>
+        
+       
+    </div>
+
+       <button id="show" onclick="location.href='index.html';">🏠</button>
+    <button  id="home"onclick="location.href='nextPage.html';">≣</button>
+        <button id="submit" type="submit">Submit</button>
+    </form>
+
+    <script>
+       
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting and refreshing the page
+
+            var formData = new FormData(event.target);
+            var name = formData.get('name');
+            var mo = formData.get('mo');
+            var advance = formData.get('advance');
+            var dateOfDelivery = formData.get('dateOfDelivery');
+            var design = formData.get('design');
+            var length = formData.get('length');
+            var shoulder = formData.get('shoulder');
+            var chest = formData.get('chest');
+            var fitting = formData.get('fitting');
+            var astin = formData.get('astin');
+            var coller = formData.get('coller');
+            var cup = formData.get('cup');
+            var cupSize = formData.get('cupSize');
+            var height = formData.get('height');
+            var  weist= formData.get('weist');
+            var sheet = formData.get('sheet');
+            var thigh = formData.get('thigh');
+            var  knee = formData.get('knee');
+            var bottom = formData.get('bottom');
+         
+
+            // Save data to local storage
+            var savedData = localStorage.getItem('dataList');
+            if (!savedData) {
+                savedData = {};
+            } else {
+                savedData = JSON.parse(savedData);
+            }
+            
+
+            savedData[name] = { advance:advance,mo:mo,dateOfDelivery:dateOfDelivery,
+            design:design,
+         length:length,  shoulder:shoulder,  chest:chest,  fitting:fitting,  astin:astin,  coller:coller,  cup:cup,  cupSize:cupSize,  height:height,  weist:weist,
+          sheet:sheet,  thigh:thigh,  knee:knee, bottom:bottom, };
+            localStorage.setItem('dataList', JSON.stringify(savedData));
+
+            showData(); // Display updated data list
+        });
+        
+
+        // Function to display data listcupSize
+        
+    </script>
+
+
+</body>
+</html>
