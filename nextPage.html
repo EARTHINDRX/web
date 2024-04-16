@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,28 +8,37 @@
       text-align: center;
       background-image: linear-gradient(to right, #77b6ee 0%, #00f2fe 100%);
     }
-    
+
     #mainPagebtn{
       width: 50px;
             cursor: pointer;
             font-size: 1.3em;
             height: 9%;
             background-color: rgb(218, 152, 205);
-            border-radius:10px;   
-          
+            border-radius:10px;
+
           position:fixed;
             bottom: 2%;
             right: 0%;
-            border: none; 
+            border: none;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-            
+
     }
     #dataList div {
+      height: 500px;
+      background-color: rgb(168, 208, 242);
+      font-size: 1.2em;
+    color: rgb(0, 0, 0);
       margin-bottom: 10px;
     }
     
+
     /* Style the delete buttons */
-    #dataList button {
+    #dataList button {position: relative;
+    
+      bottom: 59%;
+      left: -15%;
+     
   background-color: red;
   color: white;
   border: none;
@@ -42,137 +52,130 @@
   top: 1%;
   width: 50px;
 }
+#result{
+  background-color: #77b6ee;
+}
+#dataimg {
+  
+  height: 31%;
+  width: 31%;
+  position: relative;
+  bottom: 300px;
+  border: 1px solid cyan;
+  right: 40%;
+  cursor: pointer;
+  transition: transform .2s; /* Animation time */
+
+}
+#dataimg:active {
+	transform: scale(2.5); /* Zoom scale */
+}
+
+#datapg { height: 31%;
+  width: 31%;
+  border: 1px solid cyan;
+  position: relative;
+  bottom: 256px;
+  right: 40%;
+  cursor: pointer;
+  transition: transform .2s; /* Animation time */
+
+
+	
+}
+
+
+#datapg:active {
+	transform: scale(3.5); /* Zoom scale */
+}
 
 
   </style>
 </head>
 <body>
-  <h1>🆃🅰🅸🅻🅴🆁 🅳🅾🆂🆃</h1>
+<h1>🆃🅰🅸🅻🅴🆁 🅳🅾🆂🆃</h1>
 
-    <!-- Search input field -->
-    <input type="text" id="searchInput" placeholder="Search by name...">
+<!-- Search input field -->
+<h1>Search by name</h1>
+  <input type="text" id="searchValue" placeholder="Enter key">
+  <button onclick="searchValue()">Search</button>
+  <div id="result"></div>
+<!-- Div to display the filtered data -->
+<div id="dataList">
+  <img id="saved-image" src="" alt="Saved Image">
+<div id="image-gallery"></div>
+</div>
+<button id="mainPagebtn" onclick="location.href='mainPage.html';">🏠</button>
 
-    <!-- Button to trigger the search function -->
-    <button onclick="return searchData();">Search</button>
 
-    <!-- Div to display the filtered data -->
-    <div id="dataList"></div>
-  <button id="mainPagebtn" onclick="location.href='mainPage.html';">🏠</button>
- 
-  <div id="dataList"></div>
 
-  
-  <input type="text" id="date" readonly>
 
-  
+<input type="text" id="date" readonly>
 
-  <script>
-      // JavaScript code to get the current date
-      let today = new Date();
-        let date = today.toLocaleDateString();
 
-        // Update the HTML element with the id "dateInput"
-        document.getElementById("date").value = date;
-     
-    // Function to display data list
-    function showData() {
-      var savedData = localStorage.getItem('dataList');
-      if (savedData) {
-        savedData = JSON.parse(savedData);
-        var dataListHTML = '<h2>Data List</h2>';
-        for (var name in savedData) {
-          dataListHTML += '<div>';
-          dataListHTML += '<strong>Name:</strong> ' + name + '<br>';
-          dataListHTML += '<strong>Date:</strong> ' + date + '<br>';
-          dataListHTML += '<strong>Mobile no:</strong> ' + savedData[name].mo + '<br>';
-          dataListHTML += '<strong>Advance:</strong> ' + savedData[name].advance + '<br>';
-          dataListHTML += '<strong>Design:</strong> ' + savedData[name].design + '<br>';
-          dataListHTML += '<strong>Date of Delivery:</strong> ' + savedData[name].dateOfDelivery + '<br>';
 
-          dataListHTML += '<strong>SHIRT:</strong><br>' 
-                          +'Length: '+ savedData[name].length +
-                          ' Shoulder: '+ savedData[name].shoulder +'<br>' +
-                          ' Chest: '+ savedData[name].chest  +
-                          ' Fitting: '+ savedData[name].fitting  +
-                          ' Astin: '+ savedData[name].astin +'<br>' +
-                          ' Coller: '+ savedData[name].coller  +
-                          ' Cup: '+ savedData[name].cup+
-                          ' Cup Size: '+ savedData[name].cupSize+'<br>'  +
-                          '</div>';
-                         
+<script>
+// JavaScript code to get the current date
+let today = new Date();
+let date = today.toLocaleDateString();
 
-          dataListHTML += '<div><strong>TROUSERS:</strong><br>' 
-                          +'Height: ' + savedData[name].height +
-                          ' Waist: '+ savedData[name].weist +
-                          ' Sheet: '+ savedData[name].sheet +
-                          ' Thigh: '+ savedData[name].thigh+'<br>' +
-                          ' Knee: '+ savedData[name].knee +
-                          ' Bottom: '+savedData[name].bottom+
-                          '</div>';
-                                        
-          
+// Update the HTML element with the id "dateInput"
+document.getElementById("date").value = date;
 
-          dataListHTML += '<button data-name="' + name + '">Delete</button></div>';
-        }
-        document.getElementById('dataList').innerHTML = dataListHTML;
+function displayLocalStorage() {
+    const localStorageList = document.getElementById('dataList');
+    localStorageList.innerHTML = '';
 
-        // Add delete listeners to buttons
-        addDeleteListeners();
-      }
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<div>
+            
+                <strong>Name:</strong> ${key} <br>
+               
+                <strong>Date:</strong> ${date} <br>
+                
+                ${value}<button data-name="${key}">Delete</button>
+                 <br>
+                
+                
+                
+            </div>
+        `;
+
+        localStorageList.appendChild(listItem);
     }
 
-    // Function to add delete listeners to buttons
-    function addDeleteListeners() {
-      var deleteButtons = document.getElementsByTagName('button');
-      for (var i = 0; i < deleteButtons.length; i++) {
-        if (deleteButtons[i].hasAttribute('data-name')) {
-          deleteButtons[i].addEventListener('click', deleteData);
-        }
-      }
-    }
+    // Add event listener to each delete button after creating them
+    const deleteButtons = document.querySelectorAll('button[data-name]');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const key = button.getAttribute('data-name');
+            deleteFromLocalStorage(key);
+        });
+    });
+}
 
-    // Function to delete data by name
-    function deleteData(event) {
-      var name = event.target.getAttribute('data-name');
-      var savedData = localStorage.getItem('dataList');
-      if (savedData) {
-        savedData = JSON.parse(savedData);
-        delete savedData[name];
-        localStorage.setItem('dataList', JSON.stringify(savedData));
-        showData();
-      }
-    }
+// Add delete function by key
+function deleteFromLocalStorage(key) {
+    localStorage.removeItem(key);
+    displayLocalStorage();
+}
 
-    // Call showData() function to display initial data list
-    showData();
-    
-    function searchData() {
-        // Get the search input value
-        var searchInput = document.getElementById('searchInput');
-        var searchValue = searchInput.value.toLowerCase();
+// Call the function to display the local storage data when the page loads
+window.onload = displayLocalStorage;
 
-        // Filter the saved data based on the search input value
-        var filteredData = Object.keys(savedData)
-          .filter(function(name) {
-            return name.toLowerCase().includes(searchValue);
-          });
+function searchValue() {
+  var key = document.getElementById('searchValue').value;
+  var value = localStorage.getItem(key);
+  if (value) {
+    document.getElementById('result').innerHTML = 'Value found: ' + value;
+  } else {
+    document.getElementById('result').innerHTML = 'Key not found in local storage';
+  }
+}
 
-        // Generate the HTML for the filtered data
-        var dataListHTML = '<h2>Data List</h2>';
-        for (var name of filteredData) {
-          dataListHTML += '<div>';
-          dataListHTML += '<strong>Name:</strong> ' + name + '<br>';
-          dataListHTML += '<strong>Value:</strong> ' + savedData[name] + '<br>';
-          dataListHTML += '</div>';
-        }
-
-        // Display the filtered data on the page
-        document.getElementById('dataList').innerHTML = dataListHTML;
-
-        // Prevent the form from being submitted normally
-        return false;
-      }
-   
 </script>
 </body>
 </html>
